@@ -1,6 +1,7 @@
 .container {
   position: fixed;
-  max-width: 0;
+  top: 0;
+  //max-width: 0;
   z-index: var(--z-logo);
   left: var(--outer-margin);
   padding-bottom: 0 !important;
@@ -18,6 +19,10 @@
     display: block;
   }
 
+  svg {
+    width: 100px;
+  }
+
   &.home {
 
     @include mq($from: desktop) {
@@ -26,6 +31,7 @@
       left: 0;
     }
   }
+
 
   svg,
   g,

@@ -22,6 +22,7 @@ const sections = {
   "youths": "Unga",
   "news": "Nyheter",
   "contact": "Kontakt",
+  "in-english": "In English",
   "search": "Sök"
 }
 
