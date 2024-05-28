@@ -2,10 +2,8 @@ import i18nPaths from './i18n/paths.json'
 import { TypedDocumentNode } from "@apollo/client/core";
 import { apiQuery } from "dato-nextjs-utils/api";
 import type { ApiQueryOptions } from "dato-nextjs-utils/api";
-import type { MenuItem } from '/lib/menu';
 import format from "date-fns/format";
 import React from "react";
-import { AllYearsDocument } from '/graphql';
 
 export const isServer = typeof window === 'undefined';
 
@@ -191,42 +189,10 @@ export const randomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export async function getStaticYearPaths(doc: TypedDocumentNode, segment: string) {
-
-  const paths = []
-
-  const years = await allYears()
-
-  for (let i = 0; i < years.length; i++) {
-    const { id, title: year } = years[i];
-    const res = await apiQueryAll(doc, { variables: { yearId: id } })
-    const items = res[Object.keys(res)[0]];
-    paths.push.apply(paths, items.map((i) => ({ params: { year, [segment]: i.slug } })))
-
-  }
-
-  return {
-    paths,
-    fallback: 'blocking',
-  };
-}
 
 export const translatePath = (href: string, locale: string, defaultLocale: string, year?: string): string => {
   return href;
 
-  const basePath = href.split('/')[1]
-  const slug = href.split('/').slice(2).join('/')
-  const key = Object.keys(i18nPaths).find(k => [i18nPaths[k].sv, i18nPaths[k].en].includes(basePath))
-  const translatedPath = (!basePath || !key) ? '/' : `/${i18nPaths[key][locale]}/${slug}`
-
-  const fullPath = translatedPath ? `${locale !== defaultLocale ? `/${locale}` : ''}${year ? `/${year}` : ''}${translatedPath}` : undefined
-  return fullPath;
-
-}
-
-export const allYears = async (): Promise<YearRecord[]> => {
-  const { years } = await apiQuery(AllYearsDocument)
-  return years;
 }
 
 export type TruncateOptions = {

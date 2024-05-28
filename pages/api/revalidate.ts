@@ -1,5 +1,5 @@
 import { withRevalidate } from 'dato-nextjs-utils/hoc'
-import { allYears, translatePath } from '/lib/utils';
+import { translatePath } from '/lib/utils';
 import { defaultLocale } from '/lib/i18n'
 
 export default withRevalidate(async (record, revalidate) => {
@@ -10,9 +10,6 @@ export default withRevalidate(async (record, revalidate) => {
 
 
   switch (apiKey) {
-    case 'year':
-      paths.push(`/${record.title}`)
-      break;
     case 'general':
       paths.push(`/`)
       break;

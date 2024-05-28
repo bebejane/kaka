@@ -3,7 +3,6 @@ import { GetStaticProps, GetServerSideProps, GetStaticPropsContext } from 'next'
 import { GlobalDocument, FooterDocument } from "/graphql";
 import type { TypedDocumentNode } from "@apollo/client/core/types.js";
 import { buildMenu } from "/lib/menu";
-import { allYears } from "/lib/utils";
 
 export default function withGlobalProps(opt: any, callback: Function): GetStaticProps | GetServerSideProps {
 
