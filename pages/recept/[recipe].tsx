@@ -35,7 +35,7 @@ export default function Recipe({ recipe: {
         content={content}
         onClick={(imageId) => { }}
       />
-      <BackButton>{t('BackButton.showAllExhibitons')}</BackButton>
+      <BackButton href={'/recept'}>{t('BackButton.showAllRecipes')}</BackButton>
     </>
   )
 }

@@ -2,27 +2,27 @@ import s from './StartRandomParticipant.module.scss'
 import React from 'react'
 import { CardContainer, Card, Thumbnail } from '/components'
 import { useTranslations } from 'next-intl'
-import Link from '/components/nav/Link'
+import Link from 'next/link'
 
 export type Props = {
   data: StartRandomParticipantRecord & {
-    participants: ParticipantRecord[]
+    interviews: ParticipantRecord[]
   }
 }
 
-export default function StartRandomParticipant({ data: { participants } }: Props) {
+export default function StartRandomParticipant({ data: { interviews } }: Props) {
   const t = useTranslations()
 
   return (
     <div className={s.container}>
       <header>
-        <h2>{t('Menu.participants')}</h2>
+        <h2>{t('Menu.interviews')}</h2>
         <Link href={'/medverkande'} className="small">
           {t('General.showAll')}
         </Link>
       </header>
-      <CardContainer hideLastOnDesktop={participants.length % 3 !== 0}>
-        {participants.map(({ id, image, intro, name, slug, year }) =>
+      <CardContainer hideLastOnDesktop={interviews.length % 3 !== 0}>
+        {interviews.map(({ id, image, intro, name, slug, year }) =>
           <Card key={id}>
             <Thumbnail
               image={image}

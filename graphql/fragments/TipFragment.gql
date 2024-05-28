@@ -2,6 +2,7 @@ fragment TipFragment on TipRecord {
 	_createdAt
 	id
 	intro(markdown: false)
+	name
 	slug
 	image {
 		...ImageFragment

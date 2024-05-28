@@ -38,7 +38,7 @@ export default function Tips({ tips }: Props) {
   );
 }
 
-export const getStaticProps = withGlobalProps({ queries: [AllTipsDocument, AllYouthsDocument] }, async ({ props, revalidate }: any) => {
+export const getStaticProps = withGlobalProps({ queries: [AllTipsDocument] }, async ({ props, revalidate }: any) => {
 
   return {
     props: {

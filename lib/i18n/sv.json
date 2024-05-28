@@ -2,14 +2,12 @@
 	"Menu": {
 		"home": "Hem",
 		"about": "Om",
-		"program": "Program",
 		"recipes": "Recept",
 		"tips": "Tips",
 		"interviews": "Intervjuer",
 		"youths": "Unga",
 		"news": "Nyheter",
 		"contact": "Kontakt",
-		"archive": "Arkiv",
 		"search": "Sök"
 	},
 	"FilterBar": {
@@ -27,12 +25,11 @@
 	},
 	"BackButton": {
 		"showAll": "Visa alla",
-		"showAllPrograms": "Visa hela programmet",
-		"showAllExhibitons": "Visa alla utställningar",
-		"showAllParticipants": "Visa alla medverkande",
-		"showAllLocations": "Visa alla platser",
+		"showAllRecipes": "Visa alla recept",
+		"showAllInterviews": "Visa alla intervjuer",
+		"showAllYouths": "Visa alla unga",
 		"showAllNews": "Visa alla nyheter",
-		"showAllPartners": "Visa alla partners"
+		"showAllTips": "Visa alla tips"
 	},
 	"Footer": {
 		"subscribe": "Prenumerera på vårt nyhetsbrev",
@@ -53,7 +50,7 @@
 		"related": "Relaterat",
 		"participatingIn": "Deltar i"
 	},
-	"Partners": {
+	"Tips": {
 		"supportedBy": "Finansiärer"
 	},
 	"Program": {

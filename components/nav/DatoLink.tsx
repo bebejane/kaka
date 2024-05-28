@@ -1,4 +1,4 @@
-import Link from './Link'
+import Link from 'next/link'
 import { recordToSlug } from '/lib/utils'
 
 export type Props = {

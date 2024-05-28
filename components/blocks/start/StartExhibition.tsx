@@ -3,7 +3,7 @@ import React from 'react'
 import { CardContainer, Card, Thumbnail } from '/components'
 import { useTranslations } from 'next-intl'
 import { formatDate } from '/lib/utils'
-import Link from '/components/nav/Link'
+import Link from 'next/link'
 
 export type Props = {
   data: StartExhibitionRecord & {

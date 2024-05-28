@@ -5,7 +5,7 @@ import { StructuredContent } from "/components";
 import { Image } from 'react-datocms';
 import { useScrollInfo } from 'dato-nextjs-utils/hooks'
 import { DatoSEO } from 'dato-nextjs-utils/components';
-import Link from '/components/nav/Link'
+import Link from 'next/link'
 import useStore from '/lib/store';
 import format from 'date-fns/format';
 import { useRouter } from 'next/router';
@@ -26,10 +26,10 @@ export type ArticleProps = {
   onClick?: (id: string) => void
   record?: any
   date?: string
-  partner?: PartnerRecord[]
+  tip?: TipRecord[]
 }
 
-export default function Article({ id, children, title, content, image, imageSize, intro, partner, date, onClick, record }: ArticleProps) {
+export default function Article({ id, children, title, content, image, imageSize, intro, tip, date, onClick, record }: ArticleProps) {
 
   const { asPath } = useRouter()
   const t = useTranslations()
@@ -88,14 +88,14 @@ export default function Article({ id, children, title, content, image, imageSize
           </>
         }
         {children}
-        {partner?.length > 0 &&
+        {tip?.length > 0 &&
           <p className="small-body">
-            {t('General.inCooperationWith')} {partner.map(({ id, title, slug }, idx) =>
+            {t('General.inCooperationWith')} {tip.map(({ id, title, slug }, idx) =>
               <React.Fragment key={id}>
-                <Link href={`/partners/${slug}`}>
+                <Link href={`/tips/${slug}`}>
                   {title}
                 </Link>
-                {partner.length - 1 > idx && ', '}
+                {tip.length - 1 > idx && ', '}
               </React.Fragment>
             )}
           </p>

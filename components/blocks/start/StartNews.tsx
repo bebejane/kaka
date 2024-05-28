@@ -2,7 +2,7 @@ import s from './StartNews.module.scss'
 import React from 'react'
 import { CardContainer, Card, Thumbnail } from '/components'
 import { useTranslations } from 'next-intl'
-import Link from '/components/nav/Link'
+import Link from 'next/link'
 
 export type Props = {
   data: StartNewsRecord & {

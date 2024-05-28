@@ -28,7 +28,7 @@ export default function Youth({ youth: { id, image, title, intro, content, _seoM
         content={content}
         onClick={(imageId) => { }}
       />
-      <BackButton href={'/platser'}>{t('BackButton.showAllYouths')}</BackButton>
+      <BackButton href={'/unga'}>{t('BackButton.showAllYouths')}</BackButton>
     </>
   );
 }

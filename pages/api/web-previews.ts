@@ -30,7 +30,7 @@ export default withWebPreviewsEdge(async ({ item, itemType }) => {
     case 'program_category':
       path = `/program`
       break;
-    case 'participant':
+    case 'interview':
       path = `/medverkande/${slug}`
       break;
     case 'news':

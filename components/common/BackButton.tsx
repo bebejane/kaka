@@ -1,5 +1,5 @@
 import { Button } from '/components'
-import Link from '/components/nav/Link'
+import Link from 'next/link'
 import { useRouter } from "next/router"
 
 export type Props = {
@@ -13,7 +13,7 @@ export default function BackButton(props: Props) {
   const segemnts = asPath.split('/'); segemnts.pop()
 
   return (
-    <Link href={href || segemnts.join('/')} transformHref={false}>
+    <Link href={href || segemnts.join('/')}>
       <Button className="back">{children}</Button>
     </Link>
   )

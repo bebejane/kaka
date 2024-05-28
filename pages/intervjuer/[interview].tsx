@@ -27,7 +27,7 @@ export default function Interview({ interview: { id, image, title, intro, conten
         onClick={(imageId) => { }}
       />
 
-      <BackButton>{t('BackButton.showAllParticipants')}</BackButton>
+      <BackButton>{t('BackButton.showAllInterviews')}</BackButton>
     </>
   );
 }
@@ -44,7 +44,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
-  const slug = context.params.participant;
+  const slug = context.params.interview;
   const { interview } = await apiQuery(InterviewDocument, { variables: { slug }, preview: context.preview })
 
   if (!interview)

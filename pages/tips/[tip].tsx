@@ -1,26 +1,22 @@
 import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';
-import { PartnerDocument, AllPartnersDocument } from "/graphql";
+import { TipDocument, AllTipsDocument } from "/graphql";
 import { Article, Related, BackButton, MetaSection } from '/components';
-import { formatDate } from "/lib/utils";
 import { useTranslations } from "next-intl";
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 
 export type Props = {
-  tip: PartnerRecord
+  tip: TipRecord
 }
 
-export default function Partner({ tip: {
+export default function Tip({ tip: {
   id,
   image,
-  title,
+  name,
   intro,
   content,
-  address,
-  city,
-  webpage,
   _seoMetaTags
 } }: Props) {
 
@@ -28,34 +24,23 @@ export default function Partner({ tip: {
 
   return (
     <>
-      <DatoSEO title={title} description={intro} seo={_seoMetaTags} />
+      <DatoSEO title={name} description={intro} seo={_seoMetaTags} />
       <Article
         id={id}
         key={id}
-        title={title}
+        title={name}
         image={image}
         intro={intro}
         content={content}
         onClick={(imageId) => { }}
       />
-      <MetaSection
-        key={`${id}-meta`}
-        items={[
-          { title: t('MetaSection.city'), value: city },
-          { title: t('MetaSection.address'), value: address },
-          { title: t('MetaSection.link'), value: webpage ? t('MetaSection.webpage') : undefined, link: webpage }
-        ]}
-      />
-      {/*
-      <Related header={t('Menu.participants')} items={tips} />
-      */}
-      <BackButton>{t('BackButton.showAllPartners')}</BackButton>
+      <BackButton href={'/tips'}>{t('BackButton.showAllTips')}</BackButton>
     </>
   )
 }
 
 export async function getStaticPaths() {
-  const { tips } = await apiQueryAll(AllPartnersDocument)
+  const { tips } = await apiQueryAll(AllTipsDocument)
   const paths = tips.map(({ slug }) => ({ params: { tip: slug } }))
 
   return {
@@ -67,7 +52,7 @@ export async function getStaticPaths() {
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
   const slug = context.params.tip;
-  const { tip } = await apiQuery(PartnerDocument, { variables: { slug, locale: context.locale }, preview: context.preview })
+  const { tip } = await apiQuery(TipDocument, { variables: { slug, locale: context.locale }, preview: context.preview })
 
   if (!tip)
     return { notFound: true }
@@ -80,8 +65,8 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
         section: 'tips',
         parent: true,
         overview: '/tips',
-        title: tip.title,
-        slugs: pageSlugs('tips', props.year.title, tip._allSlugLocales)
+        title: tip.name,
+        slugs: pageSlugs('tips', tip._allSlugLocales)
       } as PageProps
     },
     revalidate

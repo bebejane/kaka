@@ -35,7 +35,7 @@ export const getStaticProps = withGlobalProps({ queries: [StartDocument] }, asyn
 	let { start }: { start: StartRecord } = props;
 	const date = format(new Date(), 'yyyy-MM-dd')
 	const count = {
-		participants: parseInt((start?.content.find(el => el.__typename === 'StartRandomParticipantRecord') as StartRandomParticipantRecord)?.amount ?? '6'),
+		interviews: parseInt((start?.content.find(el => el.__typename === 'StartRandomParticipantRecord') as StartRandomParticipantRecord)?.amount ?? '6'),
 		news: parseInt((start?.content.find(el => el.__typename === 'StartNewsRecord') as StartNewsRecord)?.amount ?? '6'),
 		programs: parseInt((start?.content.find(el => el.__typename === 'StartProgramRecord') as StartProgramRecord)?.amount ?? '6'),
 		exhibitions: parseInt((start?.content.find(el => el.__typename === 'StartExhibitionRecord') as StartExhibitionRecord)?.amount ?? '6')
@@ -46,15 +46,15 @@ export const getStaticProps = withGlobalProps({ queries: [StartDocument] }, asyn
 
 	const variables = {
 		newsItems: count.news || 0,
-		programItems: count.participants || 0,
+		programItems: count.interviews || 0,
 		locale: props.locale,
 		date
 	}
 
-	const { news, programs, participants, exhibitions }: {
+	const { news, programs, interviews, exhibitions }: {
 		news: NewsRecord[],
 		programs: ProgramRecord[],
-		participants: ParticipantRecord[],
+		interviews: ParticipantRecord[],
 		exhibitions: ExhibitionRecord[]
 	} = await apiQuery(StartDataDocument, { variables })
 
@@ -68,7 +68,7 @@ export const getStaticProps = withGlobalProps({ queries: [StartDocument] }, asyn
 					news: block.__typename === 'StartNewsRecord' ? news : null,
 					programs: block.__typename === 'StartProgramRecord' ? programs.slice(0, count.programs) : null,
 					exhibitions: block.__typename === 'StartExhibitionRecord' ? exhibitions.slice(0, count.exhibitions) : null,
-					participants: block.__typename === 'StartRandomParticipantRecord' ? participants.sort(() => Math.random() > 0.5 ? 1 : -1).slice(0, count.participants) : null,
+					interviews: block.__typename === 'StartRandomParticipantRecord' ? interviews.sort(() => Math.random() > 0.5 ? 1 : -1).slice(0, count.interviews) : null,
 				}))
 			},
 			page: {

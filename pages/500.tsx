@@ -1,4 +1,4 @@
-import Link from '/components/nav/Link'
+import Link from 'next/link'
 
 export default function FiveZeroZero() {
   return (

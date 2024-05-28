@@ -29,7 +29,7 @@ export default withRevalidate(async (record, revalidate) => {
     case 'program_category':
       paths.push('/program')
       break;
-    case 'participant':
+    case 'interview':
       paths.push('/medverkande')
       paths.push(`/medverkande/${slug}`)
       break;

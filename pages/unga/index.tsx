@@ -10,7 +10,7 @@ export type Props = {
   youths: YouthRecord[]
 }
 
-export default function Partners({ youths }: Props) {
+export default function Tips({ youths }: Props) {
 
   const t = useTranslations()
   const { asPath } = useRouter()
@@ -26,7 +26,7 @@ export default function Partners({ youths }: Props) {
               image={image}
               intro={intro}
               titleRows={1}
-              slug={`/platser/${slug}`}
+              slug={`/unga/${slug}`}
             />
           </Card>
         )}

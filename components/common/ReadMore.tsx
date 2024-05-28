@@ -1,6 +1,6 @@
 import styles from './ReadMore.module.scss'
 import cn from 'classnames'
-import Link from '/components/nav/Link'
+import Link from 'next/link'
 
 type Props = {
   message?: string

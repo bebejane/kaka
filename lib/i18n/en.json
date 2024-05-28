@@ -2,14 +2,12 @@
 	"Menu": {
 		"home": "Home",
 		"about": "About",
-		"program": "Program",
 		"recipes": "Recipes",
-		"tips": "Partners",
+		"tips": "Tips",
 		"interviews": "Interviews",
 		"youths": "Youths",
 		"news": "News",
 		"contact": "Contact",
-		"archive": "Archive",
 		"search": "Search"
 	},
 	"FilterBar": {
@@ -27,12 +25,11 @@
 	},
 	"BackButton": {
 		"showAll": "Show all",
-		"showAllPrograms": "Show complete program",
-		"showAllExhibitons": "Show all exhibitons",
-		"showAllParticipants": "Show all participants",
-		"showAllLocations": "Show all locations",
+		"showAllRecipes": "Show all recipes",
+		"showAllInterviews": "Show all interviews",
+		"showAllYouths": "Show",
 		"showAllNews": "Show all news",
-		"showAllPartners": "Show all partners"
+		"showAllTips": "Show all tips"
 	},
 	"Footer": {
 		"subscribe": "Subscribe to our newsletter",
@@ -53,7 +50,7 @@
 		"related": "Related",
 		"participatingIn": "Participating in"
 	},
-	"Partners": {
+	"Tips": {
 		"supportedBy": "Financed by"
 	},
 	"Program": {

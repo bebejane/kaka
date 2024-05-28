@@ -1,7 +1,7 @@
 import s from './SectionHeader.module.scss'
 import cn from 'classnames'
 import React from 'react'
-import Link from '/components/nav/Link'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { MenuItem } from '/lib/menu'
 import { useTranslations } from 'next-intl'
