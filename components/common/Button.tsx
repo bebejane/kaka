@@ -16,8 +16,6 @@ export default function Button({ className, children }: Props) {
   return (
     <button className={cn(s.button, className)}>
       <span>{children}</span>
-      <div className={s.left} style={leftStyle} />
-      <div className={s.right} style={rightStyle} />
     </button>
   )
 }
