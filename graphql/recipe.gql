@@ -1,0 +1,14 @@
+query AllRecipes {
+	recipes: allRecipes(first: 100) {
+		...RecipeFragmentLight
+	}
+	pagination: _allRecipesMeta {
+		count
+	}
+}
+
+query Recipe($slug: String!) {
+	recipe(filter: { slug: { eq: $slug } }) {
+		...RecipeFragment
+	}
+}

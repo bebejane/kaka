@@ -1,0 +1,219 @@
+query Start {
+	start {
+		id
+		content {
+			__typename
+			... on StartTextRecord {
+				__typename
+				id
+				headline
+				text
+				link {
+					__typename
+					... on ExternalLinkRecord {
+						__typename
+						id
+						title
+						url
+					}
+					... on InternalLinkRecord {
+						__typename
+						id
+						internalTitle: title
+						record {
+							... on AboutRecord {
+								id
+								slug
+								title
+							}
+						}
+					}
+				}
+			}
+			... on StartNewsRecord {
+				__typename
+				id
+				amount
+			}
+			... on StartVideoRecord {
+				__typename
+				id
+				title
+				video {
+					provider
+					providerUid
+					thumbnailUrl
+					url
+				}
+			}
+			... on StartProgramRecord {
+				__typename
+				id
+				amount
+			}
+			... on StartFullscreenImageRecord {
+				__typename
+				id
+				image {
+					...ImageFragment
+				}
+				headline
+				text
+				link {
+					__typename
+					... on ExternalLinkRecord {
+						__typename
+						id
+						title
+						url
+					}
+					... on InternalLinkRecord {
+						__typename
+						id
+						record {
+							... on AboutRecord {
+								id
+								slug
+								title
+							}
+
+							... on NewsRecord {
+								id
+								slug
+								title
+							}
+						}
+					}
+				}
+			}
+			... on StartFullscreenVideoRecord {
+				__typename
+				id
+				headline
+				text(markdown: false)
+				video {
+					...VideoFragment
+				}
+				link {
+					__typename
+					... on ExternalLinkRecord {
+						__typename
+						id
+						title
+						url
+					}
+					... on InternalLinkRecord {
+						__typename
+						id
+						internalTitle: title
+						record {
+							... on AboutRecord {
+								id
+								slug
+								title
+							}
+
+							... on NewsRecord {
+								id
+								slug
+								title
+							}
+						}
+					}
+				}
+			}
+
+			... on StartRandomParticipantRecord {
+				__typename
+				id
+				amount
+			}
+			... on StartExhibitionRecord {
+				__typename
+				id
+				amount
+			}
+
+			... on StartFullscreenImageRecord {
+				id
+				image {
+					...ImageFragment
+				}
+			}
+			... on StartFullBleedImageRecord {
+				id
+				image {
+					...ImageFragment
+				}
+				headline
+				text
+				link {
+					__typename
+					... on ExternalLinkRecord {
+						__typename
+						id
+						title
+						url
+					}
+					... on InternalLinkRecord {
+						__typename
+						id
+						record {
+							... on AboutRecord {
+								id
+								slug
+								title
+							}
+
+							... on NewsRecord {
+								id
+								slug
+								title
+							}
+						}
+					}
+				}
+			}
+			... on StartGalleryRecord {
+				__typename
+				id
+				headline
+				images {
+					...ImageFragment
+				}
+				link {
+					__typename
+					... on ExternalLinkRecord {
+						__typename
+						id
+						title
+						url
+					}
+					... on InternalLinkRecord {
+						__typename
+						id
+						record {
+							... on AboutRecord {
+								id
+								slug
+								title
+							}
+
+							... on NewsRecord {
+								id
+								slug
+								title
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+query StartData($newsItems: IntType) {
+	news: allNews(first: $newsItems, orderBy: _createdAt_DESC) {
+		...NewsFragmentLight
+	}
+}

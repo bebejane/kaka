@@ -1,0 +1,9 @@
+query Footer {
+	footer: general {
+		id
+		email
+		facebook
+		instagram
+		about
+	}
+}

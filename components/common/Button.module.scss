@@ -1,0 +1,21 @@
+.button {
+  position: relative;
+
+  .left,
+  .right {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: var(--white);
+    width: 30px;
+
+  }
+
+  .left {
+    left: 0px;
+  }
+
+  .right {
+    right: 0px;
+  }
+}

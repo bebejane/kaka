@@ -1,0 +1,16 @@
+query Menu {
+	abouts: allAbouts(first: 100) {
+		id
+		title
+		slug
+	}
+	aboutMeta: _allAboutsMeta {
+		count
+	}
+	tipsMeta: _allTipsMeta {
+		count
+	}
+	youthMeta: _allYouthsMeta {
+		count
+	}
+}

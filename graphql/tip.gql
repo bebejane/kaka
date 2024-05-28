@@ -1,0 +1,14 @@
+query AllTips {
+	tips: allTips(first: 100) {
+		...TipFragmentLight
+	}
+	pagination: _allTipsMeta {
+		count
+	}
+}
+
+query Tip($slug: String!) {
+	tip(filter: { slug: { eq: $slug } }) {
+		...TipFragment
+	}
+}

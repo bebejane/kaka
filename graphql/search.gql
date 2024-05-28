@@ -1,0 +1,74 @@
+#import "./fragments/ImageThumbnailFragment"
+
+query SiteSearch(
+	$aboutIds: [ItemId]
+	$newsIds: [ItemId]
+	$recipeIds: [ItemId]
+	$interviewIds: [ItemId]
+	$locationIds: [ItemId]
+	$tipIds: [ItemId]
+	$first: IntType = 100
+	$skip: IntType = 0
+) {
+	abouts: allAbouts(
+		first: $first
+		skip: $skip
+
+		filter: { id: { in: $aboutIds } }
+	) {
+		__typename
+		_modelApiKey
+		title
+		text: intro(markdown: false)
+		slug
+	}
+	news: allNews(first: $first, skip: $skip, filter: { id: { in: $newsIds } }) {
+		__typename
+		_modelApiKey
+		title
+		text: intro(markdown: false)
+		slug
+	}
+
+	recipes: allRecipes(
+		first: $first
+		skip: $skip
+
+		filter: { id: { in: $recipeIds } }
+	) {
+		__typename
+		_modelApiKey
+		title
+		text: intro(markdown: false)
+		slug
+	}
+	interviews: allInterviews(first: $first, skip: $skip, filter: { id: { in: $interviewIds } }) {
+		__typename
+		_modelApiKey
+		text: intro(markdown: false)
+		slug
+	}
+	youth: allYouths(
+		first: $first
+		skip: $skip
+
+		filter: { id: { in: $locationIds } }
+	) {
+		__typename
+		_modelApiKey
+		title
+		text: intro(markdown: false)
+		slug
+	}
+	tips: allTips(
+		first: $first
+		skip: $skip
+
+		filter: { id: { in: $tipIds } }
+	) {
+		__typename
+		_modelApiKey
+		text: intro(markdown: false)
+		slug
+	}
+}

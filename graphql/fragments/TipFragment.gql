@@ -1,0 +1,81 @@
+fragment TipFragment on TipRecord {
+	_createdAt
+	id
+	intro(markdown: false)
+	slug
+	image {
+		...ImageFragment
+	}
+	content {
+		value
+		blocks {
+			__typename
+			... on ImageRecord {
+				__typename
+				id
+				layout
+				image {
+					...ImageFragment
+				}
+			}
+			... on ImageGalleryRecord {
+				__typename
+				id
+				images {
+					...ImageThumbnailFragment
+				}
+			}
+			... on LinkButtonRecord {
+				__typename
+				id
+				link {
+					__typename
+					... on ExternalLinkRecord {
+						__typename
+						id
+						title
+						url
+					}
+					... on InternalLinkRecord {
+						__typename
+						id
+						record {
+							... on AboutRecord {
+								id
+								slug
+								title
+							}
+
+							... on NewsRecord {
+								id
+								slug
+								title
+							}
+						}
+					}
+				}
+			}
+			... on VideoRecord {
+				__typename
+				id
+				title
+				video {
+					height
+					width
+					title
+					provider
+					providerUid
+					thumbnailUrl
+					url
+				}
+			}
+			... on RecordInterface {
+				__typename
+				id
+			}
+		}
+	}
+	_seoMetaTags {
+		...SeoMetaTagsFragment
+	}
+}

@@ -1,0 +1,14 @@
+query AllInterviews {
+	interviews: allInterviews(first: 100) {
+		...InterviewFragmentLight
+	}
+	pagination: _allInterviewsMeta {
+		count
+	}
+}
+
+query Interview($slug: String) {
+	interview(filter: { slug: { eq: $slug } }) {
+		...InterviewFragment
+	}
+}

@@ -1,0 +1,8 @@
+fragment TipFragmentLight on TipRecord {
+	id
+	intro(markdown: false)
+	image {
+		...ImageThumbnailFragment
+	}
+	slug
+}
