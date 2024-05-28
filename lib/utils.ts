@@ -1,4 +1,3 @@
-import i18nPaths from './i18n/paths.json'
 import { TypedDocumentNode } from "@apollo/client/core";
 import { apiQuery } from "dato-nextjs-utils/api";
 import type { ApiQueryOptions } from "dato-nextjs-utils/api";
@@ -59,20 +58,17 @@ export const recordToSlug = (record: any): string => {
       case 'AboutRecord':
         url = `/om/${slug}`
         break;
-      case 'ParticipantRecord':
-        url = `/medverkande/${slug}`
+      case 'InterviewRecord':
+        url = `/intervju/${slug}`
         break;
-      case 'ProgramRecord':
-        url = `/program/${slug}`
+      case 'YouthRecord':
+        url = `/unga/${slug}`
         break;
-      case 'ExhibitionRecord':
-        url = `/utstallningar-och-projekt/${slug}`
+      case 'RecipeRecord':
+        url = `/recept/${slug}`
         break;
       case 'NewsRecord':
         url = `/nyheter/${slug}`
-        break;
-      case 'LocationRecord':
-        url = `/platser/${slug}`
         break;
       case 'TipRecord':
         url = `/tips/${slug}`

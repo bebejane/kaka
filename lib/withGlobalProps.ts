@@ -20,9 +20,6 @@ export default function withGlobalProps(opt: any, callback: Function): GetStatic
 
     const props = await apiQuery(queries, { preview: context.preview });
 
-    let messages = (await import(`./i18n/sv.json`)).default
-
-    props.messages = messages;
     props.menu = await buildMenu()
 
     if (callback)
