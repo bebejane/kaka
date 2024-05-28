@@ -12,9 +12,6 @@ export default withWebPreviewsEdge(async ({ item, itemType }) => {
   const slug = typeof item.attributes.slug === 'object' ? item.attributes.slug.sv : item.attributes.slug
 
   switch (api_key) {
-    case 'year':
-      path = `/${item.attributes.title}`
-      break;
     case 'general':
       path = `/`
       break;
@@ -24,25 +21,16 @@ export default withWebPreviewsEdge(async ({ item, itemType }) => {
     case 'about':
       path = `/om/${slug}`
       break;
-    case 'program':
-      path = `/program/${slug}`
-      break;
-    case 'program_category':
-      path = `/program`
-      break;
     case 'interview':
-      path = `/medverkande/${slug}`
+      path = `/intervju/${slug}`
       break;
     case 'news':
       path = `/nyheter/${slug}`
       break;
     case 'youth':
-      path = `/platser/${slug}`
+      path = `/unga/${slug}`
       break;
-    case 'exhibition':
-      path = `/recept/${slug}`
-      break;
-    case 'exhibition':
+    case 'recipe':
       path = `/recept/${slug}`
       break;
     case 'tip':

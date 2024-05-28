@@ -1,6 +1,4 @@
 import { withRevalidate } from 'dato-nextjs-utils/hoc'
-import { translatePath } from '/lib/utils';
-import { defaultLocale } from '/lib/i18n'
 
 export default withRevalidate(async (record, revalidate) => {
 
@@ -19,26 +17,19 @@ export default withRevalidate(async (record, revalidate) => {
     case 'about':
       paths.push(`/om/${slug}`)
       break;
-    case 'program':
-      paths.push('/program')
-      paths.push(`/program/${slug}`)
-      break;
-    case 'program_category':
-      paths.push('/program')
-      break;
     case 'interview':
-      paths.push('/medverkande')
-      paths.push(`/medverkande/${slug}`)
+      paths.push('/intervju')
+      paths.push(`/intervju/${slug}`)
       break;
     case 'news':
       paths.push('/nyheter')
       paths.push(`/nyheter/${slug}`)
       break;
     case 'youth':
-      paths.push('/platser')
-      paths.push(`/platser/${slug}`)
+      paths.push('/unga')
+      paths.push(`/unga/${slug}`)
       break;
-    case 'exhibition':
+    case 'recipe':
       paths.push('/recept')
       paths.push(`/recept/${slug}`)
       break;
@@ -56,6 +47,5 @@ export default withRevalidate(async (record, revalidate) => {
       break;
   }
 
-  console.log(paths)
   revalidate(paths)
 })
