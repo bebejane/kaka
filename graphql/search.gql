@@ -5,7 +5,7 @@ query SiteSearch(
 	$newsIds: [ItemId]
 	$recipeIds: [ItemId]
 	$interviewIds: [ItemId]
-	$locationIds: [ItemId]
+	$youthIds: [ItemId]
 	$tipIds: [ItemId]
 	$first: IntType = 100
 	$skip: IntType = 0
@@ -45,6 +45,7 @@ query SiteSearch(
 	interviews: allInterviews(first: $first, skip: $skip, filter: { id: { in: $interviewIds } }) {
 		__typename
 		_modelApiKey
+		title
 		text: intro(markdown: false)
 		slug
 	}
@@ -52,7 +53,7 @@ query SiteSearch(
 		first: $first
 		skip: $skip
 
-		filter: { id: { in: $locationIds } }
+		filter: { id: { in: $youthIds } }
 	) {
 		__typename
 		_modelApiKey
@@ -68,6 +69,7 @@ query SiteSearch(
 	) {
 		__typename
 		_modelApiKey
+		title: name
 		text: intro(markdown: false)
 		slug
 	}

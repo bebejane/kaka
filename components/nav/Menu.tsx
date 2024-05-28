@@ -4,12 +4,10 @@ import { useRouter } from 'next/router'
 import { useState, useRef, useEffect } from 'react'
 import type { Menu, MenuItem } from '/lib/menu'
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
 import { Hamburger } from '/components'
 import useStore from '/lib/store'
 import { useScrollInfo } from 'dato-nextjs-utils/hooks'
 import { useWindowSize } from 'usehooks-ts'
-import i18nPaths from '/lib/i18n/paths.json'
 import useDevice from '/lib/hooks/useDevice'
 
 
@@ -32,12 +30,8 @@ export default function Menu({ items }: MenuProps) {
 
 	const onSubmitSearch = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-
-		const segment = i18nPaths['search'][locale];
-		const path = `/${locale === defaultLocale ? segment : `${locale}/${segment}`}`
-		router.push(path, undefined, { shallow: true, scroll: true })
+		router.push(`/sok?q=${searchQuery}`, undefined, { shallow: true, scroll: true })
 		setSearchFocus(false)
-
 	}
 
 	useEffect(() => {
@@ -60,8 +54,6 @@ export default function Menu({ items }: MenuProps) {
 		setFooterScrollPosition(footerScrollPosition)
 
 	}, [menuRef, selected, scrolledPosition, documentHeight, viewportHeight, width, height, isMobile])
-
-
 
 	useEffect(() => {
 
@@ -112,7 +104,7 @@ export default function Menu({ items }: MenuProps) {
 								<form onSubmit={onSubmitSearch}>
 									<input
 										name="q"
-										placeholder={'Sök...'}
+										placeholder={`Sök${searchFocus ? '...' : ''}`}
 										autoComplete={'off'}
 										value={searchQuery ?? ''}
 										onFocus={() => setSearchFocus(true)}

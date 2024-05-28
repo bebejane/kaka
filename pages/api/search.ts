@@ -10,7 +10,7 @@ export const config = {
 
 export type SearchResult = {
   [index: string]: {
-    __typename: 'AboutRecord' | 'ParticipantRecord' | 'TipRecord' | 'NewsRecord' | 'ExhibitionRecord' | 'YouthRecord' | 'ProgramRecord',
+    __typename: 'AboutRecord' | 'RecipeRecord' | 'InterviewRecord' | 'TipRecord' | 'NewsRecord' | 'YouthRecord',
     _apiKey: string
     category: string
     title: string
@@ -42,13 +42,12 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 
 export const siteSearch = async (opt: any) => {
 
-  const { q, locale } = opt;
+  const { q } = opt;
 
   if (!q) return {}
 
   const variables = {
-    query: q ? `${q.split(' ').filter(el => el).join('|')}` : undefined,
-    locale
+    query: q ? `${q.split(' ').filter(el => el).join('|')}` : undefined
   };
 
   if (isEmptyObject(variables))
@@ -60,7 +59,6 @@ export const siteSearch = async (opt: any) => {
   const search = (await client.items.list({
     filter: { type: itemTypes.map(m => m.api_key).join(','), query: q },
     order_by: '_rank_DESC',
-    locale,
     allPages: true
   })).map(el => ({
     ...el,
@@ -76,14 +74,12 @@ export const siteSearch = async (opt: any) => {
       variables: {
         aboutIds: chunk.filter(el => el._api_key === 'about').map(el => el.id),
         newsIds: chunk.filter(el => el._api_key === 'news').map(el => el.id),
-        programIds: chunk.filter(el => el._api_key === 'program').map(el => el.id),
-        exhibitionIds: chunk.filter(el => el._api_key === 'exhibition').map(el => el.id),
+        youthIds: chunk.filter(el => el._api_key === 'youth').map(el => el.id),
         interviewIds: chunk.filter(el => el._api_key === 'interview').map(el => el.id),
         tipIds: chunk.filter(el => el._api_key === 'tip').map(el => el.id),
-        youthIds: chunk.filter(el => el._api_key === 'youth').map(el => el.id),
+        recipeIds: chunk.filter(el => el._api_key === 'recipe').map(el => el.id),
         first,
-        skip: i,
-        locale
+        skip: i
       }
     })
 

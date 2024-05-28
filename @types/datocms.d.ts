@@ -4628,14 +4628,14 @@ type SiteSearchQueryVariables = Exact<{
   newsIds?: InputMaybe<Array<InputMaybe<Scalars['ItemId']>> | InputMaybe<Scalars['ItemId']>>;
   recipeIds?: InputMaybe<Array<InputMaybe<Scalars['ItemId']>> | InputMaybe<Scalars['ItemId']>>;
   interviewIds?: InputMaybe<Array<InputMaybe<Scalars['ItemId']>> | InputMaybe<Scalars['ItemId']>>;
-  locationIds?: InputMaybe<Array<InputMaybe<Scalars['ItemId']>> | InputMaybe<Scalars['ItemId']>>;
+  youthIds?: InputMaybe<Array<InputMaybe<Scalars['ItemId']>> | InputMaybe<Scalars['ItemId']>>;
   tipIds?: InputMaybe<Array<InputMaybe<Scalars['ItemId']>> | InputMaybe<Scalars['ItemId']>>;
   first?: InputMaybe<Scalars['IntType']>;
   skip?: InputMaybe<Scalars['IntType']>;
 }>;
 
 
-type SiteSearchQuery = { __typename?: 'Query', abouts: Array<{ __typename: 'AboutRecord', _modelApiKey: string, title: string, slug: string, text: string }>, news: Array<{ __typename: 'NewsRecord', _modelApiKey: string, title: string, slug: string, text: string }>, recipes: Array<{ __typename: 'RecipeRecord', _modelApiKey: string, title: string, slug: string, text: string }>, interviews: Array<{ __typename: 'InterviewRecord', _modelApiKey: string, slug: string, text: string }>, youth: Array<{ __typename: 'YouthRecord', _modelApiKey: string, title: string, slug: string, text: string }>, tips: Array<{ __typename: 'TipRecord', _modelApiKey: string, slug: string, text: string }> };
+type SiteSearchQuery = { __typename?: 'Query', abouts: Array<{ __typename: 'AboutRecord', _modelApiKey: string, title: string, slug: string, text: string }>, news: Array<{ __typename: 'NewsRecord', _modelApiKey: string, title: string, slug: string, text: string }>, recipes: Array<{ __typename: 'RecipeRecord', _modelApiKey: string, title: string, slug: string, text: string }>, interviews: Array<{ __typename: 'InterviewRecord', _modelApiKey: string, title: string, slug: string, text: string }>, youth: Array<{ __typename: 'YouthRecord', _modelApiKey: string, title: string, slug: string, text: string }>, tips: Array<{ __typename: 'TipRecord', _modelApiKey: string, slug: string, title: string, text: string }> };
 
 type StartQueryVariables = Exact<{ [key: string]: never; }>;
 
