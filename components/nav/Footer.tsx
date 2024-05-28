@@ -13,7 +13,6 @@ export type FooterProps = {
 }
 
 export default function Footer({ menu, footer: { email, facebook, instagram, about } }: FooterProps) {
-	const t = useTranslations('Footer')
 	const { isHome } = usePage()
 
 	return (
@@ -24,7 +23,7 @@ export default function Footer({ menu, footer: { email, facebook, instagram, abo
 					<a href={`mailto:${email}`}>{email}</a>Cookies & GDPR
 				</div>
 				<div>
-					{t('followUs')} <a href={instagram}>Instagram</a>
+					Följ oss <a href={instagram}>Instagram</a>
 				</div>
 				<div>
 					{about}

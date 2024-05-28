@@ -22,9 +22,8 @@ export default function CardContainer({ children, columns = 3, className, hideLa
   const ref = useRef<HTMLUListElement | null>(null)
   const { isDesktop } = useDevice()
   const [cards, setCards] = useState(buildCards())
-  const { locale } = useRouter()
 
-  useEffect(() => { setCards(buildCards()) }, [isDesktop, locale])
+  useEffect(() => { setCards(buildCards()) }, [isDesktop])
 
   return (
     <ul ref={ref} className={cn(s.container, columns === 2 && s.two, columns === 3 && s.three, className)}>

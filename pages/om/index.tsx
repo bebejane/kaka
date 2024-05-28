@@ -8,8 +8,7 @@ export { default } from './[about]'
 
 export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate, context }: any) => {
 
-  const yearId = props.year.id
-  const { abouts } = await apiQuery(MainAboutDocument, { variables: { locale: context.locale, yearId }, preview: context.preview })
+  const { abouts } = await apiQuery(MainAboutDocument, { preview: context.preview })
   const about = abouts[0] ?? null
 
   if (!about)

@@ -2,8 +2,7 @@ import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';
 import { TipDocument, AllTipsDocument } from "/graphql";
-import { Article, Related, BackButton, MetaSection } from '/components';
-import { useTranslations } from "next-intl";
+import { Article, BackButton } from '/components';
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 
@@ -20,8 +19,6 @@ export default function Tip({ tip: {
   _seoMetaTags
 } }: Props) {
 
-  const t = useTranslations()
-
   return (
     <>
       <DatoSEO title={name} description={intro} seo={_seoMetaTags} />
@@ -34,7 +31,7 @@ export default function Tip({ tip: {
         content={content}
         onClick={(imageId) => { }}
       />
-      <BackButton href={'/tips'}>{t('BackButton.showAllTips')}</BackButton>
+      <BackButton href={'/tips'}>Visa alla tips</BackButton>
     </>
   )
 }

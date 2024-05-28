@@ -4,7 +4,6 @@ import { AllNewsDocument } from "/graphql";
 import Link from 'next/link'
 import { DatoMarkdown as Markdown } from "dato-nextjs-utils/components";
 import format from "date-fns/format";
-import { useTranslations } from "next-intl";
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 import { Button } from "/components";
@@ -14,20 +13,19 @@ export type Props = {
 }
 
 export default function News({ news }: Props) {
-  const t = useTranslations()
 
   return (
     <>
-      <DatoSEO title={t('Menu.news')} />
+      <DatoSEO title={'Nyheter'} />
       <section className={s.news}>
         <ul>
-          {news.map(({ id, image, thumb, title, intro, _createdAt, slug }) =>
+          {news.map(({ id, title, intro, _createdAt, slug }) =>
             <li key={id}>
               <h3 className="small">
                 {format(new Date(_createdAt), 'dd MMMM, yyyy')}
               </h3>
               <h1>
-                <Link href={`/nyheter/${slug}`} transformHref={false}>
+                <Link href={`/nyheter/${slug}`}>
                   {title}
                 </Link>
               </h1>
@@ -36,8 +34,8 @@ export default function News({ news }: Props) {
                   {intro}
                 </Markdown>
               </div>
-              <Link href={`/nyheter/${slug}`} transformHref={false}>
-                <Button>{t('General.readMore')}</Button>
+              <Link href={`/nyheter/${slug}`}>
+                <Button>Läs mer</Button>
               </Link>
             </li>
           )}
@@ -54,6 +52,7 @@ export const getStaticProps = withGlobalProps({ queries: [AllNewsDocument] }, as
       ...props,
       page: {
         section: 'news',
+        title: 'Nyheter',
         slugs: pageSlugs('news')
       } as PageProps
     },

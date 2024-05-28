@@ -2,10 +2,8 @@ import s from "./index.module.scss";
 import withGlobalProps from "/lib/withGlobalProps";
 import { AllRecipesDocument } from "/graphql";
 import { CardContainer, Card, Thumbnail } from "/components";
-import { formatDate } from "/lib/utils";
 import { useRouter } from "next/router";
 import { DatoSEO } from "dato-nextjs-utils/components";
-import { useTranslations } from "next-intl";
 import { pageSlugs } from "/lib/i18n";
 
 export type Props = {
@@ -14,12 +12,11 @@ export type Props = {
 
 export default function Recipe({ recipes }: Props) {
 
-  const t = useTranslations()
   const { asPath } = useRouter()
 
   return (
     <>
-      <DatoSEO title={t('Menu.recipes')} />
+      <DatoSEO title={'Recept'} />
       <CardContainer key={asPath} columns={3}>
         {recipes.map(({ id, image, title, slug }) =>
           <Card key={id}>
@@ -39,13 +36,12 @@ export default function Recipe({ recipes }: Props) {
 
 export const getStaticProps = withGlobalProps({ queries: [AllRecipesDocument] }, async ({ props, revalidate }: any) => {
 
-  const { recipes } = props;
-
   return {
     props: {
       ...props,
       page: {
         section: 'recipes',
+        title: 'Recept',
         slugs: pageSlugs('recipes')
       } as PageProps
     },

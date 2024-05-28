@@ -2,9 +2,7 @@ import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';
 import { RecipeDocument, AllRecipesDocument } from "/graphql";
-import { Article, Related, BackButton, MetaSection } from '/components';
-import { formatDate } from "/lib/utils";
-import { useTranslations } from "next-intl";
+import { Article, BackButton } from '/components';
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 
@@ -21,8 +19,6 @@ export default function Recipe({ recipe: {
   _seoMetaTags
 } }: Props) {
 
-  const t = useTranslations()
-
   return (
     <>
       <DatoSEO title={title} description={intro} seo={_seoMetaTags} />
@@ -35,7 +31,7 @@ export default function Recipe({ recipe: {
         content={content}
         onClick={(imageId) => { }}
       />
-      <BackButton href={'/recept'}>{t('BackButton.showAllRecipes')}</BackButton>
+      <BackButton href={'/recept'}>Visa alla recept</BackButton>
     </>
   )
 }

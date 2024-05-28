@@ -31,7 +31,6 @@ export default function StartExhibition({ data: { exhibitions } }: Props) {
               intro={intro}
               meta={`${startDate ? `${formatDate(startDate, endDate)} • ` : ''}${location.map(l => l.title).join(', ')}`}
               slug={`/${year.title}/utstallningar-och-projekt/${slug}`}
-              transformHref={false}
               titleLength={50}
               titleRows={1}
             />

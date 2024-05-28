@@ -29,7 +29,6 @@ export default function StartRandomParticipant({ data: { interviews } }: Props) 
               title={name}
               intro={intro}
               slug={`/${year.title}/medverkande/${slug}`}
-              transformHref={false}
               titleLength={50}
               titleRows={1}
             />

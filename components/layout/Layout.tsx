@@ -1,6 +1,6 @@
 import s from './Layout.module.scss'
 import React, { useEffect, useState } from 'react'
-import { Content, Footer, Grid, Menu, Language, FullscreenGallery } from '/components'
+import { Content, Footer, Grid, Menu, FullscreenGallery } from '/components'
 import type { MenuItem } from '/lib/menu'
 import { buildMenu } from '/lib/menu'
 import { useRouter } from 'next/router'
@@ -16,19 +16,12 @@ export type LayoutProps = {
 
 export default function Layout({ children, menu: menuFromProps, footer, title }: LayoutProps) {
 
-	const router = useRouter()
-	const { year, section } = usePage()
 	const [menu, setMenu] = useState(menuFromProps)
 	const [images, imageId, setImageId] = useStore((state) => [state.images, state.imageId, state.setImageId])
 
 	useEffect(() => { // Refresh menu on load.
-		buildMenu(router.locale).then(res => setMenu(res)).catch(err => console.error(err))
-	}, [router.locale])
-
-	useEffect(() => {
-		document.body.style.backgroundColor = year?.isArchive || section === 'archive' ? 'var(--archive)' : 'var(--white)'
-	}, [router.asPath, year, section])
-
+		buildMenu().then(res => setMenu(res)).catch(err => console.error(err))
+	}, [])
 
 	if (!menuFromProps || !footer) return null
 
@@ -40,7 +33,6 @@ export default function Layout({ children, menu: menuFromProps, footer, title }:
 				</Content>
 			</div>
 			<Menu items={menu} />
-			<Language menu={menu} />
 			<Footer menu={menu} footer={footer} />
 			<FullscreenGallery
 				index={images?.findIndex((image) => image?.id === imageId)}

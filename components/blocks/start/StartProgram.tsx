@@ -33,7 +33,6 @@ export default function StartProgram({ data: { programs } }: Props) {
               titleRows={3}
               meta={`${formatDate(startDate, endDate)} — ${programCategory.title}`}
               slug={`/${year.title}/program/${slug}`}
-              transformHref={false}
             />
           </Card>
         )}

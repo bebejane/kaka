@@ -17,7 +17,6 @@ export type MenuProps = { items: Menu }
 
 export default function Menu({ items }: MenuProps) {
 
-	const t = useTranslations('Menu')
 	const router = useRouter()
 	const { locale, defaultLocale, asPath } = router
 	const menuRef = useRef<HTMLUListElement | null>(null);
@@ -113,7 +112,7 @@ export default function Menu({ items }: MenuProps) {
 								<form onSubmit={onSubmitSearch}>
 									<input
 										name="q"
-										placeholder={t('search')}
+										placeholder={'Sök...'}
 										autoComplete={'off'}
 										value={searchQuery ?? ''}
 										onFocus={() => setSearchFocus(true)}

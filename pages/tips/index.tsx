@@ -1,11 +1,10 @@
 import s from "./index.module.scss";
-import cn from 'classnames'
 import withGlobalProps from "/lib/withGlobalProps";
-import { AllYouthsDocument, AllTipsDocument } from "/graphql";
-import { CardContainer, Card, Thumbnail, Link } from "/components";
+import { AllTipsDocument } from "/graphql";
+import { CardContainer, Card, Thumbnail } from "/components";
 import { useRouter } from "next/router";
 import { DatoSEO } from "dato-nextjs-utils/components";
-import { useTranslations } from "next-intl";
+
 import { pageSlugs } from "/lib/i18n";
 
 export type Props = {
@@ -15,12 +14,11 @@ export type Props = {
 
 export default function Tips({ tips }: Props) {
 
-  const t = useTranslations()
   const { asPath } = useRouter()
 
   return (
     <>
-      <DatoSEO title={t('Menu.tips')} />
+      <DatoSEO title={'Tips'} />
       <CardContainer key={`${asPath}-tips`}>
         {tips.map(({ id, image, name, intro, slug }) =>
           <Card key={id}>
@@ -45,6 +43,7 @@ export const getStaticProps = withGlobalProps({ queries: [AllTipsDocument] }, as
       ...props,
       page: {
         section: 'tips',
+        title: 'Tips',
         slugs: pageSlugs('tips')
       } as PageProps
     },

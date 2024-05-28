@@ -13,12 +13,11 @@ export type Props = {
 
 export default function Interview({ interviews }: Props) {
 
-  const t = useTranslations('Menu')
   const { asPath } = useRouter()
 
   return (
     <>
-      <DatoSEO title={t('interviews')} />
+      <DatoSEO title={'Intervjuer'} />
       <CardContainer key={asPath}>
         {interviews.map(({ id, image, title, intro, slug }) =>
           <Card key={id}>
@@ -43,6 +42,7 @@ export const getStaticProps = withGlobalProps({ queries: [AllInterviewsDocument]
       ...props,
       page: {
         section: 'interviews',
+        title: 'Intervjuer',
         slugs: pageSlugs('interviews')
       } as PageProps
     },

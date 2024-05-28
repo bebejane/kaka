@@ -18,16 +18,15 @@ export type Props = {
   titleRows?: number
   intro?: string
   meta?: string
-  transformHref?: boolean
 }
 
-export default function Thumbnail({ image, slug, intro, title, titleLength, titleRows = 3, meta, transformHref = true }: Props) {
+export default function Thumbnail({ image, slug, intro, title, titleLength, titleRows = 3, meta }: Props) {
 
   const strippedIntro = truncateWords(remark().use(strip).processSync(intro).value as string, 500)
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <Link href={slug} transformHref={transformHref} className={s.thumbnail}>
+    <Link href={slug} className={s.thumbnail}>
       {image &&
         <div className={s.imageWrap}>
           <>

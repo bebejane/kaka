@@ -14,7 +14,7 @@ const base: Menu = [
   { id: 'in-english', label: 'In English', slug: '/in-english', general: true }
 ]
 
-export const buildMenu = async (locale: string) => {
+export const buildMenu = async () => {
 
   const res = await apiQuery(MenuDocument)
 

@@ -3,22 +3,20 @@ import { AllYouthsDocument, } from "/graphql";
 import { CardContainer, Card, Thumbnail } from "/components";
 import { useRouter } from "next/router";
 import { DatoSEO } from "dato-nextjs-utils/components";
-import { useTranslations } from "next-intl";
 import { pageSlugs } from "/lib/i18n";
 
 export type Props = {
   youths: YouthRecord[]
 }
 
-export default function Tips({ youths }: Props) {
+export default function Youths({ youths }: Props) {
 
-  const t = useTranslations()
   const { asPath } = useRouter()
 
   return (
     <>
-      <DatoSEO title={t('Menu.tips')} />
-      <CardContainer key={`${asPath}-tips`}>
+      <DatoSEO title={'Unga'} />
+      <CardContainer key={`${asPath}-youths`}>
         {youths.map(({ id, image, title, intro, slug }) =>
           <Card key={id}>
             <Thumbnail
@@ -42,6 +40,7 @@ export const getStaticProps = withGlobalProps({ queries: [AllYouthsDocument] }, 
       ...props,
       page: {
         section: 'youths',
+        title: 'Unga',
         slugs: pageSlugs('youths')
       } as PageProps
     },

@@ -2,8 +2,7 @@ import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';
 import { InterviewDocument, AllInterviewsDocument } from "/graphql";
-import { Article, Related, BackButton } from '/components';
-import { useTranslations } from "next-intl";
+import { Article, BackButton } from '/components';
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 
@@ -12,7 +11,6 @@ export type Props = {
 }
 
 export default function Interview({ interview: { id, image, title, intro, content, _seoMetaTags } }: Props) {
-  const t = useTranslations()
 
   return (
     <>
@@ -27,7 +25,7 @@ export default function Interview({ interview: { id, image, title, intro, conten
         onClick={(imageId) => { }}
       />
 
-      <BackButton>{t('BackButton.showAllInterviews')}</BackButton>
+      <BackButton>Visa alla intervjuer</BackButton>
     </>
   );
 }

@@ -7,7 +7,6 @@ import Link from "next/link";
 import { DatoMarkdown as Markdown } from "dato-nextjs-utils/components";
 import useStore from "/lib/store";
 import { useRouter } from "next/router";
-import { useTranslations } from "next-intl";
 import type { SearchResult } from "/pages/api/search";
 import { pageSlugs } from "/lib/i18n";
 
@@ -18,7 +17,6 @@ export type Props = {
 export default function Search({ query }: Props) {
 
   const router = useRouter()
-  const t = useTranslations()
   const [searchQuery, setSearchQuery] = useStore((state) => [state.searchQuery, state.setSearchQuery])
   const [results, setResults] = useState<SearchResult | undefined>()
   const [error, setError] = useState<Error | undefined>()
@@ -55,6 +53,7 @@ export default function Search({ query }: Props) {
     setResults(undefined)
     setLoading(true)
     setError(undefined)
+    //@ts-ignore
     clearTimeout(searchTimeout.current)
     searchTimeout.current = setTimeout(() => siteSearch(searchQuery), 250)
   }, [searchQuery])
@@ -75,7 +74,7 @@ export default function Search({ query }: Props) {
       <div className={cn(s.search)}>
         <input
           className={"mid"}
-          placeholder={t('Menu.search')}
+          placeholder={'Sök...'}
           value={searchQuery || ''}
           onChange={({ target: { value } }) => setSearchQuery(value)}
         />
@@ -93,7 +92,7 @@ export default function Search({ query }: Props) {
                   <div className={s.intro}>
                     <Markdown>{text}</Markdown>
                   </div>
-                  <Link href={slug}><Button>{t('General.readMore')}</Button></Link>
+                  <Link href={slug}><Button>Läs mer</Button></Link>
                 </li>
               )}
             </ul>
@@ -103,7 +102,7 @@ export default function Search({ query }: Props) {
         loading ?
           <div className={s.loading}><Loader /></div>
           :
-          results && searchQuery && <p className={cn(s.nohits, "small")}>{t('Search.noHitsFor')}: &quot;{searchQuery}&quot;</p>
+          results && searchQuery && <p className={cn(s.nohits, "small")}>Inga träffar för &quot;{searchQuery}&quot;</p>
       }
       {error &&
         <div className={s.error}>
@@ -125,6 +124,7 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
       ...props,
       page: {
         section: 'search',
+        title: 'Sök',
         slugs: pageSlugs('search')
       } as PageProps
     },

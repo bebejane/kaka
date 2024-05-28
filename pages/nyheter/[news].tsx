@@ -3,7 +3,6 @@ import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll } from '/lib/utils';
 import { NewsDocument, AllNewsDocument } from "/graphql";
 import { Article, BackButton } from '/components';
-import { useTranslations } from "next-intl";
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 
@@ -12,7 +11,7 @@ export type Props = {
 }
 
 export default function News({ news: { id, image, title, intro, content, _seoMetaTags } }: Props) {
-  const t = useTranslations('BackButton')
+
 
   return (
     <>
@@ -26,7 +25,7 @@ export default function News({ news: { id, image, title, intro, content, _seoMet
         content={content}
         onClick={(imageId) => { }}
       />
-      <BackButton>{t('showAllNews')}</BackButton>
+      <BackButton>Visa alla nyheter</BackButton>
     </>
   );
 }

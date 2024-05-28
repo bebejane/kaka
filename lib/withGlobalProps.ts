@@ -23,8 +23,7 @@ export default function withGlobalProps(opt: any, callback: Function): GetStatic
     let messages = (await import(`./i18n/sv.json`)).default
 
     props.messages = messages;
-    props.locale = context.locale
-    props.menu = await buildMenu(context.locale)
+    props.menu = await buildMenu()
 
     if (callback)
       return await callback({ context, props: { ...props }, revalidate });

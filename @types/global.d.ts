@@ -1,7 +1,4 @@
-type SiteLocale = 'sv'
-
 type PageSlug = {
-  locale: SiteLocale
   value: string
   parent: string
 
@@ -21,7 +18,7 @@ type YearExtendedRecord = YearRecord & {
   isArchive: boolean
 }
 
-type SectionId = 'home' | 'contact' | 'interviews' | 'news' | 'about' | 'youths' | 'program' | 'recipes' | 'tips' | 'archive' | 'search' | 'in-english'
+type SectionId = 'home' | 'contact' | 'interviews' | 'news' | 'about' | 'youths' | 'recipes' | 'tips' | 'search' | 'in-english'
 
 type ThumbnailImage = {
   thumb: FileField

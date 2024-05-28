@@ -11,7 +11,7 @@ export type Props = {
 }
 
 export default function Program({ contact: { id, title, image, intro, content, _seoMetaTags } }: Props) {
-  console.log(content)
+
   return (
     <>
       <DatoSEO title={title} description={intro} seo={_seoMetaTags} />
@@ -38,6 +38,7 @@ export const getStaticProps = withGlobalProps({ queries: [] }, async ({ props, r
       contact,
       page: {
         section: 'contact',
+        title: 'Kontakt',
         slugs: pageSlugs('contact')
       } as PageProps
     },

@@ -3,7 +3,6 @@ import { apiQuery } from 'dato-nextjs-utils/api';
 import { apiQueryAll, translatePath } from '/lib/utils';
 import { YouthDocument, AllYouthsDocument } from "/graphql";
 import { Article, Related, BackButton, MetaSection } from '/components';
-import { useTranslations } from "next-intl";
 import { DatoSEO } from "dato-nextjs-utils/components";
 import { pageSlugs } from "/lib/i18n";
 
@@ -13,7 +12,6 @@ export type Props = {
 }
 
 export default function Youth({ youth: { id, image, title, intro, content, _seoMetaTags } }: Props) {
-  const t = useTranslations()
 
   return (
     <>
@@ -28,7 +26,7 @@ export default function Youth({ youth: { id, image, title, intro, content, _seoM
         content={content}
         onClick={(imageId) => { }}
       />
-      <BackButton href={'/unga'}>{t('BackButton.showAllYouths')}</BackButton>
+      <BackButton href={'/unga'}>Visa alla unga</BackButton>
     </>
   );
 }

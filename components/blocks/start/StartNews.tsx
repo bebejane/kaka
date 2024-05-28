@@ -28,7 +28,6 @@ export default function StartNews({ data: { news } }: Props) {
               intro={intro}
               title={title}
               slug={`/nyheter/${slug}`}
-              transformHref={false}
               titleLength={80}
               titleRows={2}
             />

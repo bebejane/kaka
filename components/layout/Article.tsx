@@ -32,7 +32,7 @@ export type ArticleProps = {
 export default function Article({ id, children, title, content, image, imageSize, intro, tip, date, onClick, record }: ArticleProps) {
 
   const { asPath } = useRouter()
-  const t = useTranslations()
+
   const [setImageId, setImages] = useStore((state) => [state.setImageId, state.setImages])
   const captionRef = useRef<HTMLElement | null>(null)
   const figureRef = useRef<HTMLElement | null>(null)
@@ -88,18 +88,7 @@ export default function Article({ id, children, title, content, image, imageSize
           </>
         }
         {children}
-        {tip?.length > 0 &&
-          <p className="small-body">
-            {t('General.inCooperationWith')} {tip.map(({ id, title, slug }, idx) =>
-              <React.Fragment key={id}>
-                <Link href={`/tips/${slug}`}>
-                  {title}
-                </Link>
-                {tip.length - 1 > idx && ', '}
-              </React.Fragment>
-            )}
-          </p>
-        }
+
       </div>
     </>
   )
