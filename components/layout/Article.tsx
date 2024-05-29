@@ -83,6 +83,7 @@ export default function Article({ id, children, title, content, image, imageSize
                 record={record}
                 content={content}
                 onClick={(imageId) => setImageId(imageId)}
+                className="structured"
               />
             </div>
           </>

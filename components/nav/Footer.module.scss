@@ -65,7 +65,7 @@
     @include mq($from: tablet) {
       position: absolute;
       right: 0;
-      margin-bottom: var(--outer-margin);
+      top: 1.5rem;
     }
   }
 }
