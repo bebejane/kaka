@@ -127,8 +127,18 @@ b {
 // För Article
 article {
   ul {
+    list-style: none;
     padding-left: 1em;
-    list-style-type: square;
+
+    li {
+      //padding-left: 1em;
+      &:before {
+        position: absolute;
+        content: "•";
+        margin-top: 0.3em;
+        color: var(--green);
+      }
+    }
 
     p:last-of-type {
       margin-bottom: 0.7em;
@@ -149,6 +159,19 @@ article {
     @include mq($from: tablet) {
       padding-left: var(--grid-unit);
       padding-right: var(--grid-unit);
+    }
+  }
+
+  ul {
+    margin-left: var(--outer-margin);
+    margin-right: var(--outer-margin);
+    text-align: left;
+    @include mq($from: tablet) {
+      margin-left: var(--grid-unit);
+      margin-right: var(--grid-unit);
+    }
+    p {
+      padding-left: 1em;
     }
   }
 
