@@ -3,15 +3,15 @@
   //margin-left: var(--outer-margin);
   //margin-right: var(--outer-margin);
   padding-bottom: var(--outer-margin);
-  border-top: 1px solid var(--purple);
+  border-top: 3px solid var(--green);
   position: relative;
   text-align: left;
   z-index: var(--z-footer);
-  background-color: var(--purple);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--green);
 
   a {
-    color: var(--white);
+    color: var(--green);
   }
 
   section {

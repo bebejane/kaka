@@ -8,7 +8,7 @@
 
   &:hover {
     .image {
-      background-color: var(--green) !important;
+      background-color: var(--blue) !important;
     }
   }
 
@@ -17,7 +17,7 @@
     align-items: flex-end;
     width: 100%;
     padding-top: 0.2em;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.3em;
     text-align: left;
 
     span {
@@ -73,7 +73,7 @@
       z-index: 1;
       width: 100%;
       height: 100%;
-      aspect-ratio: 8 / 5;
+      aspect-ratio: 5 / 4;
       pointer-events: none;
       opacity: 1;
       transition: opacity 0.2s ease !important;
@@ -90,8 +90,9 @@
     .image {
       max-width: none !important;
       margin-bottom: 0.8em;
-      aspect-ratio: 8 / 5;
+      aspect-ratio: 5 / 4;
       transition: all 0.3s ease-in-out;
+      border-radius: 2rem;
 
       img {
         object-fit: cover;

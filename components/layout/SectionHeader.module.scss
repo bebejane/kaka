@@ -3,7 +3,6 @@
   display: flex;
   align-items: baseline;
   justify-content: center;
-
   z-index: var(--z-section-header);
   transition: width 0.3s ease-in-out;
   width: 100%;
@@ -20,7 +19,6 @@
   }
 
   @include mq($from: tablet) {
-
     a,
     span {
       color: var(--black);
@@ -39,7 +37,7 @@
     }
   }
 
-  margin-top: var(--big-space);
+  margin-top: 2.5rem;
 
   @include mq($until: tablet) {
     margin-top: -1.5em;
@@ -86,7 +84,7 @@
       margin: 0;
       width: 100%;
 
-      >span {
+      > span {
         /*
         &:hover {
           padding-left: 1em;
@@ -141,6 +139,7 @@
 }
 
 .line {
+  display: none;
   margin-bottom: var(--space);
   width: 100%;
   //border-bottom: 1px solid var(--black);
@@ -149,6 +148,7 @@
     margin-left: var(--outer-margin);
     margin-right: var(--outer-margin);
     width: var(--body-width);
+    display: block;
   }
 }
 

@@ -1,6 +1,6 @@
 :root {
 	--black: #1d1d1d;
-	--white: #eef0c2;
+	--white: #f3f4e2;
 	--red: #bf0000;
 	--blue: #758aff;
 	--purple: #7112b6;
@@ -133,11 +133,8 @@ button {
 	margin-bottom: var(--space);
 	margin-left: var(--outer-margin);
 	margin-right: var(--outer-margin);
-	padding-left: 1.5em;
-	padding-right: 1.5em;
-	padding-bottom: 1.5em;
-	padding-top: 1.5em;
-	background-color: var(--blue);
+	padding: 1.2rem;
+	background-color: var(--green);
 
 	color: var(--white);
 	border: 0;
@@ -149,12 +146,11 @@ button {
 	@include mq($from: tablet) {
 		margin-left: var(--grid-unit);
 		margin-right: var(--grid-unit);
-		padding-bottom: 1em;
-		padding-top: 1em;
 	}
 
-	transition: color 0.2s ease-in-out,
-	background-color 0.3s ease-in-out;
+	transition:
+		color 0.2s ease-in-out,
+		background-color 0.3s ease-in-out;
 
 	&.back {
 		width: var(--body-width);
