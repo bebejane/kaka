@@ -15,7 +15,7 @@
   pointer-events: all;
 
   &.home {
-    mix-blend-mode: difference;
+    //mix-blend-mode: difference;
 
     .wrap > div {
       background-color: var(--white);
@@ -36,7 +36,7 @@
       position: absolute;
       width: 100%;
       height: var(--line-height);
-      background-color: var(--black);
+      background-color: var(--white);
       animation-duration: 0.2s;
       animation-timing-function: steps(2, end);
       animation-iteration-count: 1;

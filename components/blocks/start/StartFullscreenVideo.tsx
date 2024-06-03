@@ -21,7 +21,7 @@ export default function StartFullscreenVideo({ data: { video, text, headline, li
 			</DatoLink>
 			<div className={s.textWrap}>
 				<h2>{headline}</h2>
-				<Markdown className={s.text}>{text}</Markdown>
+				<Markdown className={cn(s.text, "intro")}>{text}</Markdown>
 			</div>
 		</div>
 	)

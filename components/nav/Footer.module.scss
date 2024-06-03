@@ -57,7 +57,8 @@
 
   .kf {
     margin-right: var(--outer-margin);
-    filter: invert(1);
+    //filter: invert(1);
+    height: 2rem;
     @include mq($until: tablet) {
       transform: scale(0.7);
     }

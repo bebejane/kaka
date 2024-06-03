@@ -14,14 +14,13 @@
       white-space: nowrap;
       text-overflow: ellipsis;
     }
-
     line-height: 1;
   }
 
   @include mq($from: tablet) {
     a,
     span {
-      color: var(--black);
+      color: var(--green);
     }
   }
 

@@ -3,7 +3,7 @@ body {
   font-size: 15px;
   font-weight: normal;
   @include mq($from: tablet) {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   @include mq($from: wide) {
@@ -56,13 +56,13 @@ p {
   font-weight: 450;
   line-height: var(--line-height);
   letter-spacing: -0.01em;
+  color: var(--green);
 }
 
 p.intro,
 .intro p,
 .intro {
-  color: var(--green);
-
+  font-family: $headline-font;
   font-size: 1.2rem;
   padding-bottom: 0;
   line-height: var(--line-height);
@@ -73,7 +73,7 @@ p.intro,
 .small-body {
   font-size: 0.85rem;
   @include mq($from: tablet) {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
 
   strong {

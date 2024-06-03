@@ -13,9 +13,9 @@ export default function StartFullscreenImage({ data: { id, image, text, headline
     <DatoLink link={link} className={s.container}>
       <figure>
         <Image data={image.responsiveImage} className={s.image} />
-        <figcaption>
+        <figcaption className="intro">
           <h2>{headline}</h2>
-          <p>{text}</p>
+          <p className="intro">{text}</p>
           <div className={s.fade}></div>
         </figcaption>
       </figure>
