@@ -10,7 +10,8 @@ export default function Hamburger() {
   const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu])
   const [key, setKey] = useState(Math.random())
   const [init, setInit] = useState(false)
-  const handleClick = (e) => {
+
+  const handleClick = (e: React.MouseEvent) => {
     setInit(true)
     setShowMenu(!showMenu)
     setKey(Math.random())
@@ -18,7 +19,7 @@ export default function Hamburger() {
   }
 
   return (
-    <div className={cn(s.hamburger, isHome && !showMenu && s.home)} onClick={handleClick}>
+    <div className={cn(s.hamburger, isHome && !showMenu && s.home, !showMenu && s.green)} onClick={handleClick}>
       <div className={s.wrap}>
         {new Array(3).fill(0).map((_, i) =>
           <div
