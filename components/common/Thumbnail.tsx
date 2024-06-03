@@ -27,6 +27,7 @@ export default function Thumbnail({ image, slug, intro, title, titleLength, titl
           <>
             <Image
               data={image.responsiveImage}
+              pictureClassName={s.image}
               placeholderClassName={s.placeholder}
             /><div className={s.border}></div>
           </>
