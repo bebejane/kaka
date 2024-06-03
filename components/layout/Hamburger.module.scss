@@ -15,14 +15,15 @@
   pointer-events: all;
 
   &.home {
-
-    .wrap>div {
+    .wrap > div {
       background-color: var(--white);
     }
   }
 
   &.green {
-    background-color: var(--green);
+    .wrap > div {
+      background-color: var(--green);
+    }
   }
 
   @include mq($from: tablet) {
@@ -35,7 +36,7 @@
     width: 100%;
     height: 100%;
 
-    >div {
+    > div {
       position: absolute;
       width: 100%;
       height: var(--line-height);
