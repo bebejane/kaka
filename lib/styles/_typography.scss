@@ -3,7 +3,7 @@ body {
   font-size: 15px;
   font-weight: normal;
   @include mq($from: tablet) {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   @include mq($from: wide) {
@@ -118,6 +118,10 @@ button,
   @include mq($from: tablet) {
     font-size: 1rem;
   }
+}
+
+nav {
+  font-family: $body-font;
 }
 
 strong,

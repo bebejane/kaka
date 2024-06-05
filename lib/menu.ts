@@ -3,15 +3,15 @@ import { MenuDocument } from "/graphql";
 
 const base: Menu = [
   { id: 'home', label: 'Hem', slug: '/', general: true },
-  { id: 'news', label: 'Nyheter', slug: '/nyheter', general: true },
-  { id: 'interviews', label: 'Intervjuer', slug: '/intervjuer' },
-  { id: 'recipes', label: 'Recept', slug: '/recept' },
-  { id: 'tips', label: 'Tips', slug: '/tips', general: false },
-  { id: 'youths', label: 'Unga', slug: '/unga', general: false },
-  { id: 'about', label: 'Om', slug: '/om', virtual: true, sub: [] },
+  //{ id: 'news', label: 'Nyheter', slug: '/nyheter', general: true },
+  { id: 'interviews', label: 'KAKA snackar', slug: '/intervjuer' },
+  { id: 'recipes', label: 'Receptboken', slug: '/recept' },
+  { id: 'tips', label: 'KAKA spanar', slug: '/tips', general: false },
+  { id: 'youths', label: 'Ungt inflytande', slug: '/unga', general: false },
+  { id: 'about', label: 'Om oss', slug: '/om', virtual: true, sub: [] },
   { id: 'contact', label: 'Kontakt', slug: '/kontakt', general: true },
   { id: 'search', label: 'Sök', slug: '/sok', general: true },
-  { id: 'in-english', label: 'In English', slug: '/in-english', general: true }
+  //{ id: 'in-english', label: 'In English', slug: '/in-english', general: true }
 ]
 
 export const buildMenu = async () => {

@@ -5,7 +5,7 @@
   z-index: var(--z-menu);
   padding: var(--outer-margin);
   overflow: hidden;
-  background: var(--green);
+  background: var(--blue);
   transition: transform var(--menu-transition);
   min-width: 20%;
   max-width: 20%;
@@ -37,7 +37,7 @@
   }
 
   a:hover {
-    color: var(--blue) !important;
+    color: var(--green) !important;
   }
 
   ul {
@@ -102,7 +102,7 @@
 
       &.active {
         a {
-          color: var(--blue) !important;
+          color: var(--green) !important;
         }
       }
 

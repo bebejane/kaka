@@ -62,11 +62,13 @@
     h2 {
       color: var(--white) !important;
       padding-bottom: var(--space);
+      display: none;
     }
 
     .text {
       p {
         color: var(--white) !important;
+        text-align: center;
       }
     }
   }

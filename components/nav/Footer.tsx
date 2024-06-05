@@ -21,7 +21,7 @@ export default function Footer({ footer: { email, facebook, instagram, about } }
 					<a href={`mailto:${email}`}>{email}</a>
 				</div>
 				<div>
-					Följ oss <a href={instagram}>Instagram</a>
+					Följ oss på <a href={instagram}>Instagram</a>
 				</div>
 				<div>
 					{about}
