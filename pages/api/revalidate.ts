@@ -6,7 +6,6 @@ export default withRevalidate(async (record, revalidate) => {
   const { slug } = record
   const paths = []
 
-
   switch (apiKey) {
     case 'general':
       paths.push(`/`)
@@ -18,8 +17,8 @@ export default withRevalidate(async (record, revalidate) => {
       paths.push(`/om/${slug}`)
       break;
     case 'interview':
-      paths.push('/intervju')
-      paths.push(`/intervju/${slug}`)
+      paths.push('/intervjuer')
+      paths.push(`/intervjuer/${slug}`)
       break;
     case 'news':
       paths.push('/nyheter')
@@ -44,7 +43,7 @@ export default withRevalidate(async (record, revalidate) => {
       paths.push(`/in-english`)
       break;
     default:
-      break;
+      throw new Error(`Unknown api_key: ${apiKey}`)
   }
 
   revalidate(paths)
