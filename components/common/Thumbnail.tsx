@@ -22,7 +22,7 @@ export default function Thumbnail({ image, slug, intro, title, titleLength, titl
 
   return (
     <Link href={slug} className={s.thumbnail}>
-      {image &&
+      {image?.responsiveImage &&
         <div className={s.imageWrap}>
           <>
             <Image

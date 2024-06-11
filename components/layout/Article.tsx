@@ -31,8 +31,6 @@ export type ArticleProps = {
 
 export default function Article({ id, children, title, content, image, imageSize, intro, tip, date, onClick, record }: ArticleProps) {
 
-  const { asPath } = useRouter()
-
   const [setImageId, setImages] = useStore((state) => [state.setImageId, state.setImages])
   const captionRef = useRef<HTMLElement | null>(null)
   const figureRef = useRef<HTMLElement | null>(null)
@@ -51,7 +49,7 @@ export default function Article({ id, children, title, content, image, imageSize
       <DatoSEO title={title} />
       <div className={cn(s.article, 'article')}>
         <h1><BalanceText>{title}</BalanceText></h1>
-        {image &&
+        {image?.responsiveImage &&
           <figure
             className={cn(s.mainImage, imageSize && s[imageSize], image.height > image.width && s.portrait)}
             onClick={() => setImageId(image?.id)}
