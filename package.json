@@ -16,17 +16,12 @@
 		"postbuild": "next-sitemap",
 		"test": "tsx --tsconfig ./tsconfig.json ./lib/scripts/test.tsx"
 	},
-	"exports": {
-		"lib/*": "./lib",
-		"components/*": "./components",
-		"graphql/*": "./graphql",
-		"/*": "./*"
-	},
 	"dependencies": {
 		"@apollo/client": "^3.8.6",
 		"@datocms/cma-client": "3.0.1",
 		"@datocms/cma-client-browser": "^3.0.1",
 		"@datocms/cma-client-node": "3.0.2",
+		"@graphql-typed-document-node/core": "^3.2.0",
 		"@next/bundle-analyzer": "^12.3.4",
 		"@svgr/webpack": "^6.5.1",
 		"@types/mjml": "^4.7.3",
