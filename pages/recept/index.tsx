@@ -18,7 +18,7 @@ export default function Recipe({ recipes }: Props) {
     <>
       <DatoSEO title={'Recept'} />
       <CardContainer key={asPath} columns={3}>
-        {recipes.map(({ id, image, title, intro, slug }) =>
+        {recipes.map(({ id, image, intro, title, slug }) =>
           <Card key={id}>
             <Thumbnail
               title={title}
