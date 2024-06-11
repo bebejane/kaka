@@ -48,6 +48,16 @@
 
   &.home {
     margin-top: 0;
+
+    &.home {
+      svg,
+      g,
+      path {
+        @include mq($from: tablet) {
+          fill: var(--white);
+        }
+      }
+    }
   }
 
   .archive {
@@ -132,6 +142,16 @@
 
       @include mq($until: tablet) {
         //transform: scale(0.38);
+      }
+    }
+  }
+
+  &.home {
+    svg,
+    g,
+    path {
+      @include mq($from: tablet) {
+        fill: var(--white) !important;
       }
     }
   }

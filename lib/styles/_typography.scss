@@ -162,8 +162,8 @@ article {
     padding-right: var(--outer-margin);
     text-align: left;
     @include mq($from: tablet) {
-      padding-left: var(--grid-unit);
-      padding-right: var(--grid-unit);
+      padding-left: calc(2 * var(--grid-unit));
+      padding-right: calc(2 * var(--grid-unit));
     }
   }
 
@@ -172,8 +172,8 @@ article {
     margin-right: var(--outer-margin);
     text-align: left;
     @include mq($from: tablet) {
-      margin-left: var(--grid-unit);
-      margin-right: var(--grid-unit);
+      margin-left: calc(2 * var(--grid-unit));
+      margin-right: calc(2 * var(--grid-unit));
     }
     p {
       padding-left: 1em;

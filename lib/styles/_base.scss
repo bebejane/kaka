@@ -11,7 +11,7 @@
 	--logo-size-optical: 0rem;
 	--total-outer-margin: calc((var(--outer-margin) * 2) + var(--logo-size-optical));
 	--grid-unit: calc(((100vw - (2 * var(--total-outer-margin))) / 12));
-	--body-width: calc(100% - (2 * var(--outer-margin)));
+	--body-width: calc(100% - (3 * var(--outer-margin)));
 	--full-margin: calc(-1 * (2 * var(--grid-unit)));
 	--wide-margin: calc(var(--total-outer-margin) + (1.2 * var(--grid-unit)));
 	--small-space: 1rem;
@@ -38,7 +38,7 @@
 	--z-fullscreen-gallery-close: 801;
 
 	@include mq($from: tablet) {
-		--body-width: calc(100% - (2 * var(--grid-unit)));
+		--body-width: calc(100% - (4 * var(--grid-unit)));
 		--space: 2rem;
 		--outer-margin: 2vw;
 		--gutter: 3vw;
@@ -144,8 +144,8 @@ button {
 	cursor: pointer;
 
 	@include mq($from: tablet) {
-		margin-left: var(--grid-unit);
-		margin-right: var(--grid-unit);
+		margin-left: calc(2 * var(--grid-unit));
+		margin-right: calc(2 * var(--grid-unit));
 	}
 
 	transition:

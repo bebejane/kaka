@@ -1,7 +1,6 @@
 .container {
   position: fixed;
   top: 0;
-  //max-width: 0;
   z-index: var(--z-logo);
   left: var(--outer-margin);
   padding-bottom: 0 !important;
@@ -24,6 +23,13 @@
   }
 
   &.home {
+    svg,
+    g,
+    path {
+      @include mq($from: tablet) {
+        fill: var(--white);
+      }
+    }
 
     @include mq($from: desktop) {
       position: absolute;
@@ -31,7 +37,6 @@
       left: 0;
     }
   }
-
 
   svg,
   g,
