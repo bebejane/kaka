@@ -70,14 +70,14 @@
         background: transparent;
       }
 
-      > li > a {
+      >li>a {
         font-weight: bold;
         color: var(--white);
       }
     }
 
     &[data-level="2"] {
-      li > a {
+      li>a {
         font-weight: normal !important;
       }
     }
@@ -96,7 +96,7 @@
         line-height: initial;
       }
 
-      &.bold > a {
+      &.bold>a {
         font-weight: bold;
       }
 
@@ -120,7 +120,7 @@
     }
   }
 
-  > ul {
+  >ul {
     margin-top: calc(var(--big-space) - var(--outer-margin));
   }
 }
@@ -166,13 +166,15 @@
     align-items: center;
     justify-content: center;
     padding: var(--padding);
-    top: 0;
     right: 0;
+    bottom: 0.1rem;
     height: 100%;
     width: 1rem;
     opacity: 0.5;
+    font-size: 1.5rem;
     transition: opacity 0.2s ease-in-out;
     cursor: pointer;
+    color: var(--white);
 
     &:hover {
       opacity: 1;
