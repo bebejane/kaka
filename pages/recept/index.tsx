@@ -18,11 +18,12 @@ export default function Recipe({ recipes }: Props) {
     <>
       <DatoSEO title={'Recept'} />
       <CardContainer key={asPath} columns={3}>
-        {recipes.map(({ id, image, title, slug }) =>
+        {recipes.map(({ id, image, title, intro, slug }) =>
           <Card key={id}>
             <Thumbnail
               title={title}
               titleRows={2}
+              intro={intro}
               image={image}
               slug={`/recept/${slug}`}
             />
