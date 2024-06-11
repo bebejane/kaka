@@ -9,7 +9,7 @@ export default withWebPreviewsEdge(async ({ item, itemType }) => {
   let path = null;
 
   const { api_key } = itemType.attributes
-  const slug = typeof item.attributes.slug === 'object' ? item.attributes.slug.sv : item.attributes.slug
+  const slug = item.attributes.slug
 
   switch (api_key) {
     case 'general':
@@ -22,7 +22,7 @@ export default withWebPreviewsEdge(async ({ item, itemType }) => {
       path = `/om/${slug}`
       break;
     case 'interview':
-      path = `/intervju/${slug}`
+      path = `/intervjuer/${slug}`
       break;
     case 'news':
       path = `/nyheter/${slug}`
