@@ -16,7 +16,9 @@
 
   &.home {
     .wrap > div {
-      background-color: var(--white) !important;
+      @include mq($from: desktop) {
+        background-color: var(--white) !important;
+      }
     }
   }
 

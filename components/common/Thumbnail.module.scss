@@ -70,7 +70,7 @@
       overflow: hidden;
       aspect-ratio: 5 / 4;
       transition: transform 0.2s ease-in-out;
-      border-radius: 2rem;
+      border-radius: 1rem;
     }
 
     .placeholder {
@@ -79,7 +79,7 @@
       left: 0 !important;
       width: 100% !important;
       height: 100% !important;
-      border-radius: 2rem;
+      border-radius: 1rem;
     }
   }
 }

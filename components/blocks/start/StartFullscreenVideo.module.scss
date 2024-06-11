@@ -76,8 +76,7 @@
   }
 
   @include mq($until: tablet) {
-    height: 50vh;
-
+    height: 90vh;
     .textWrap {
     }
   }

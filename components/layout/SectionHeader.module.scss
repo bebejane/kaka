@@ -134,7 +134,8 @@
     width: 200px;
 
     @include mq($until: tablet) {
-      width: 120px;
+      margin-top: 7px;
+      width: 130px;
     }
 
     path {
