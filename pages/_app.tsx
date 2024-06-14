@@ -4,7 +4,7 @@ import { PageProvider } from '/lib/context/page'
 import { DefaultDatoSEO } from 'dato-nextjs-utils/components';
 import { useRouter } from 'next/router';
 
-const siteTitle = 'KAKA'
+const siteTitle = 'Konstpedagogik'
 
 function App({ Component, pageProps, router }) {
 

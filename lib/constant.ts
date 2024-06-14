@@ -6,4 +6,4 @@ export const breakpoints = {
   wide: 1600,
   navBreak: 1100
 }
-export const PROJECT_NAME = 'KAKA'
+export const PROJECT_NAME = 'Konstpedagogik'
