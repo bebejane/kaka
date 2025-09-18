@@ -1,9 +1,0 @@
-fragment YouthFragmentLight on YouthRecord {
-	id
-	title
-	intro(markdown: false)
-	slug
-	image {
-		...ImageThumbnailFragment
-	}
-}

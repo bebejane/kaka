@@ -13,3 +13,102 @@ query News($slug: String!) {
 		...NewsFragment
 	}
 }
+
+fragment NewsFragment on NewsRecord {
+	id
+	title
+	intro(markdown: false)
+	image {
+		...ImageFragment
+	}
+	slug
+	_createdAt
+	content {
+		value
+		blocks {
+			__typename
+			... on ImageRecord {
+				__typename
+				id
+				layout
+				image {
+					...ImageFragment
+				}
+			}
+			... on ImageGalleryRecord {
+				__typename
+				id
+				images {
+					...ImageThumbnailFragment
+				}
+			}
+			... on LinkButtonRecord {
+				__typename
+				id
+				link {
+					__typename
+					... on ExternalLinkRecord {
+						__typename
+						id
+						title
+						url
+					}
+					... on InternalLinkRecord {
+						__typename
+						id
+						record {
+							... on AboutRecord {
+								id
+								slug
+								title
+							}
+							... on NewsRecord {
+								id
+								slug
+								title
+							}
+						}
+					}
+				}
+			}
+			... on VideoRecord {
+				__typename
+				id
+				title
+				video {
+					height
+					width
+					title
+					provider
+					providerUid
+					thumbnailUrl
+					url
+				}
+			}
+			... on RecordInterface {
+				__typename
+				id
+			}
+		}
+	}
+	_seoMetaTags {
+		...SeoMetaTagsFragment
+	}
+}
+
+fragment NewsFragmentLight on NewsRecord {
+	id
+	title
+	intro(markdown: false)
+	slug
+	image {
+		...ImageThumbnailFragment
+	}
+	_createdAt
+}
+
+fragment SeoMetaTagsFragment on Tag {
+	attributes
+	content
+	tag
+}

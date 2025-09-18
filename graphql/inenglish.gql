@@ -79,3 +79,9 @@ query InEnglish {
 		}
 	}
 }
+
+fragment SeoMetaTagsFragment on Tag {
+	attributes
+	content
+	tag
+}
