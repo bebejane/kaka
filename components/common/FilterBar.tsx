@@ -37,8 +37,8 @@ export default function FilterBar({ options = [], onChange, multi = false }: Pro
 						onClick={() =>
 							((!open && isMobile) || !isMobile) &&
 							setSelected(
-								selected.find(({ id }) => id === opt.id)
-									? selected.filter(({ id }) => id !== opt.id)
+								selected?.find(({ id }) => id === opt.id)
+									? selected?.filter(({ id }) => id !== opt.id)
 									: multi
 									? [...selected, opt]
 									: [opt]
