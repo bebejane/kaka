@@ -29,6 +29,10 @@ fragment TipFragment on TipRecord {
 	image {
 		...ImageFragment
 	}
+	category {
+		id
+		title
+	}
 	content {
 		value
 		blocks {
@@ -109,6 +113,10 @@ fragment TipFragmentLight on TipRecord {
 	name
 	image {
 		...ImageThumbnailFragment
+	}
+	category {
+		id
+		title
 	}
 	slug
 }

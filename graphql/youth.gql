@@ -29,6 +29,10 @@ fragment YouthFragment on YouthRecord {
 	}
 	intro(markdown: false)
 	slug
+	category {
+		id
+		title
+	}
 	content {
 		value
 		blocks {
@@ -107,6 +111,10 @@ fragment YouthFragmentLight on YouthRecord {
 	title
 	intro(markdown: false)
 	slug
+	category {
+		id
+		title
+	}
 	image {
 		...ImageThumbnailFragment
 	}

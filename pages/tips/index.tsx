@@ -30,7 +30,7 @@ export default function Tips({ tips, categories }: Props) {
 				{tips
 					.filter(
 						({ category }) =>
-							!categoryFilter.length || categoryFilter?.find((id) => category.find((cat) => cat.id === id))
+							!categoryFilter.length || categoryFilter?.find((id) => category?.find((cat) => cat.id === id))
 					)
 					.map(({ id, image, name, intro, slug }) => (
 						<Card key={id}>

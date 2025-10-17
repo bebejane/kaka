@@ -26,6 +26,10 @@ fragment InterviewFragment on InterviewRecord {
 	intro(markdown: false)
 	title
 	slug
+	category {
+		id
+		title
+	}
 	image {
 		...ImageFragment
 	}
@@ -110,6 +114,10 @@ fragment InterviewFragmentLight on InterviewRecord {
 	id
 	intro(markdown: false)
 	title
+	category {
+		id
+		title
+	}
 	image {
 		...ImageThumbnailFragment
 	}
